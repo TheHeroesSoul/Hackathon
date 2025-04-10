@@ -8,4 +8,7 @@ Durante l'hackathon, i team lavorano separatamente per risolvere il problema e d
 Requisito per gruppi da tre persone.
 Ogni partecipante può contattare un altro utente iscritto e chiedere di unirsi al team di cui fa parte, fornendo un messaggio motivazionale; l'utente può accettare o rifiutare la richiesta. Un iscritto può essere contattato solo se il team di cui è membro non ha raggiunto la dimensione massima.
 
-Studenti con matricola: N86005440(Lista Lorenzo) N86005493(Francesco Giuliani) N86005645(Giulio Giangrande)
+Studenti con matricola:
+- N86005440([Lista Lorenzo](https://github.com/TheHeroesSoul))
+- N86005493(Francesco Giuliani)
+- N86005645(Giulio Giangrande)
