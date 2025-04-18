@@ -1,10 +1,10 @@
 import java.time.LocalDate;
 
-public class Hackaton {
+public class Hackathon {
     private String titoloID;
     private String sede;
-    private LocalDate inizio;
-    private LocalDate fine;
+    private LocalDate dataInizio;
+    private LocalDate dataFine;
     private int maxIscritti;
     private int maxPersoneInUnTeam;
     private LocalDate inizioIscrizioni;
