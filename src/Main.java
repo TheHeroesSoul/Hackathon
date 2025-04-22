@@ -34,6 +34,5 @@ public class Main {
         team.aggiungiVoto(new Voto(9, g1, team));
         team.aggiungiVoto(new Voto(7, g1, team));
 
-        System.out.println("Media voti: " + team.calcolaMediaVoti());
     }
 }
