@@ -13,7 +13,8 @@ public class Utente {
         this.registrato = true;
     }
 
-    public Utente(String email, String nome, String cognome) {
+    public Utente(String username, String email, String nome, String cognome) {
+        this.username = username;
         this.email = email;
         this.nome = nome;
         this.cognome = cognome;

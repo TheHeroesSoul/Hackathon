@@ -12,9 +12,10 @@ public class Hackathon {
     private LocalDate inizioIscrizioni;
     private LocalDate fineIscrizioni;
     private String descrizioneProblema;
-
     private Organizzatore organizzatore;
-    List<Giudice> giudiciSelezionati = new ArrayList<>();
+    private List<Giudice> giudici = new ArrayList<>();
+    private List<Registrazione> iscrizioni = new ArrayList<>();
+    private Problema problema;
 
     public Hackathon(String titolo, String sede, LocalDate dataInizio, LocalDate dataFine,
                      int maxIscritti, int maxPersoneInUnTeam, LocalDate inizioIscrizioni,
@@ -33,5 +34,21 @@ public class Hackathon {
 
     public String getTitolo() {
         return titolo;
+    }
+
+    public void aggiungiGiudice(Giudice g) {
+        giudici.add(g);
+    }
+
+    public void aggiungiRegistrazione(Registrazione r) {
+        iscrizioni.add(r);
+    }
+
+    public void pubblicaProblema(Problema p) {
+        this.problema = p;
+    }
+
+    public int getmaxPersoneInUnTeam() {
+        return maxPersoneInUnTeam;
     }
 }
