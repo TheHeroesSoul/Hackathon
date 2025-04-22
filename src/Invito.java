@@ -1,5 +1,5 @@
 public class Invito {
-    public enum StatoInvito {
+    public enum StatoRichiesta {
         IN_ATTESA, ACCETTATO, RIFIUTATO
     }
 
@@ -7,20 +7,20 @@ public class Invito {
     private Utente destinatario;
     private Team team;
     private String messaggio;
-    private StatoInvito stato;
+    private StatoRichiesta stato;
 
     public Invito(Utente mittente, Utente destinatario, Team team, String messaggio) {
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.team = team;
         this.messaggio = messaggio;
-        this.stato = StatoInvito.IN_ATTESA;
+        this.stato = StatoRichiesta.IN_ATTESA;
     }
 
     public void accetta() {
         if (team.getNumeroMembri() < team.getHackathon().getMaxPersoneTeam()) {
             team.aggiungiMembro(destinatario);
-            stato = StatoInvito.ACCETTATO;
+            stato = StatoRichiesta.ACCETTATO;
             System.out.println(destinatario.getNome() + " ha accettato l'invito.");
         } else {
             System.out.println("Team pieno, impossibile aggiungere.");
@@ -28,11 +28,11 @@ public class Invito {
     }
 
     public void rifiuta() {
-        stato = StatoInvito.RIFIUTATO;
+        stato = StatoRichiesta.RIFIUTATO;
         System.out.println(destinatario.getNome() + " ha rifiutato l'invito.");
     }
 
-    public StatoInvito getStato() {
+    public StatoRichiesta getStato() {
         return stato;
     }
 }

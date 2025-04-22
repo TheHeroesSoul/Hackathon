@@ -2,6 +2,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Progresso {
+    private Team team;
     private LocalDateTime data;
     private String documento;
     private List<String> commentiGiudici = new ArrayList<>();
