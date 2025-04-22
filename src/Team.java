@@ -3,11 +3,13 @@ import java.util.List;
 
 public class Team {
     private String id;
+    private String nomeTeam;
     private List<Utente> membri = new ArrayList<>();
     private Hackathon hackathon;
 
-    public Team(String id, Hackathon hackathon) {
+    public Team(String id, String nomeTeam, Hackathon hackathon) {
         this.id = id;
+        this.nomeTeam = nomeTeam;
         this.hackathon = hackathon;
     }
 
