@@ -7,4 +7,8 @@ public class Giudice extends Utente {
     public void riceviInvito(Hackathon hackathon, String messaggioInvito) {
         System.out.println("Invito ricevuto per " + hackathon.getTitolo() + " " + messaggioInvito);
     }
+
+    public void valuta(Team team, int voto) {
+        System.out.println("Team valutato con " + voto + "/10");
+    }
 }
