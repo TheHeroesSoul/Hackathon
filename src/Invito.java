@@ -1,7 +1,7 @@
-public class Partecipante extends Utente {
+public class Invito extends Utente {
     private String nomeTeam;
 
-    public Partecipante(String email, String nome, String cognome) {
+    public Invito(String email, String nome, String cognome) {
         super(email, nome, cognome);
         this.nomeTeam = nomeTeam;
     }
