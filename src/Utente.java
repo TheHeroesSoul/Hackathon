@@ -3,12 +3,14 @@ public class Utente {
     private String email;
     private String nome;
     private String cognome;
+    private boolean registrato;
 
-    public Utente(String username,String email, String nome, String cognome) {
+    public Utente(String username,String email, String nome, String cognome, boolean registrato) {
         this.username = username;
         this.email = email;
         this.nome = nome;
         this.cognome = cognome;
+        this.registrato = true;
     }
 
     public Utente(String email, String nome, String cognome) {
@@ -50,5 +52,11 @@ public class Utente {
 
     public void setCognome(String cognome) {
         this.cognome = cognome;
+    }
+
+    public boolean isRegistrato() {return registrato;}
+
+    public void contattaPerTeam(Utente destinatario, String messaggio) {
+        System.out.println("Contatto inviato a " + destinatario.getNome() + ": " + messaggio);
     }
 }
