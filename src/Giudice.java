@@ -1,7 +1,7 @@
 public class Giudice extends Utente {
 
-    public Giudice(String email, String nome, String cognome) {
-        super(email, nome, cognome);
+    public Giudice(String username, String email, String nome, String cognome) {
+        super(username, email, nome, cognome);
     }
 
     public void riceviInvito(Hackathon hackathon, String messaggioInvito) {
