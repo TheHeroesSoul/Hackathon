@@ -3,32 +3,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hackathon {
+    private String id;
     private String titolo;
     private String sede;
     private LocalDate dataInizio;
     private LocalDate dataFine;
     private int maxIscritti;
-    private int maxPersoneInUnTeam;
+    private int maxPersoneTeam;
     private LocalDate inizioIscrizioni;
     private LocalDate fineIscrizioni;
-    private String descrizioneProblema;
     private Organizzatore organizzatore;
     private List<Giudice> giudici = new ArrayList<>();
     private List<Registrazione> iscrizioni = new ArrayList<>();
+    private List<Voto> classifica = new ArrayList<>();
     private Problema problema;
 
-    public Hackathon(String titolo, String sede, LocalDate dataInizio, LocalDate dataFine,
-                     int maxIscritti, int maxPersoneInUnTeam, LocalDate inizioIscrizioni,
-                     LocalDate fineIscrizioni, String descrizioneProblema, Organizzatore organizzatore) {
+    public Hackathon(String id, String titolo, String sede, LocalDate dataInizio, LocalDate dataFine,
+                     int maxIscritti, int maxPersoneTeam, LocalDate inizioIscrizioni,
+                     LocalDate fineIscrizioni, Organizzatore organizzatore) {
+        this.id = id;
         this.titolo = titolo;
         this.sede = sede;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.maxIscritti = maxIscritti;
-        this.maxPersoneInUnTeam = maxPersoneInUnTeam;
+        this.maxPersoneTeam = maxPersoneTeam;
         this.inizioIscrizioni = inizioIscrizioni;
         this.fineIscrizioni = fineIscrizioni;
-        this.descrizioneProblema = descrizioneProblema;
         this.organizzatore = organizzatore;
     }
 
@@ -48,7 +49,7 @@ public class Hackathon {
         this.problema = p;
     }
 
-    public int getmaxPersoneInUnTeam() {
-        return maxPersoneInUnTeam;
+    public int getmaxPersoneTeam() {
+        return maxPersoneTeam;
     }
 }
