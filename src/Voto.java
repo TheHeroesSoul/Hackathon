@@ -1,9 +1,9 @@
 public class Voto {
     private int valore;
-    private Giudice giudice;
+    private Utente giudice;
     private Team team;
 
-    public Voto(int valore, Giudice giudice, Team team) {
+    public Voto(int valore, Utente giudice, Team team) {
         this.valore = valore;
         this.giudice = giudice;
         this.team = team;

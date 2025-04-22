@@ -18,7 +18,7 @@ public class Team {
             membri.add(u);
             System.out.println("Utente " + u.getNome() + " aggiunto al team.");
         } else {
-            System.out.println("Impossibile aggiungere " + u.getNome() + ": team pieno o già presente.");
+            System.out.println("Impossibile aggiungere " + u.getNome() + ": team pieno.");
         }
     }
 
