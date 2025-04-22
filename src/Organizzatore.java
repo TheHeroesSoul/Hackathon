@@ -12,17 +12,4 @@ public class Organizzatore extends Utente {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
