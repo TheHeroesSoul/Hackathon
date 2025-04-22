@@ -6,6 +6,7 @@ public class Team {
     private String nomeTeam;
     private List<Utente> membri = new ArrayList<>();
     private Hackathon hackathon;
+    private List<Voto> voti = new ArrayList<>();
 
     public Team(String id, String nomeTeam, Hackathon hackathon) {
         this.id = id;
@@ -22,6 +23,10 @@ public class Team {
         }
     }
 
+    public String getNomeTeam() {
+        return nomeTeam;
+    }
+
     public int getNumeroMembri() {
         return membri.size();
     }
@@ -36,5 +41,19 @@ public class Team {
 
     public boolean puoAccettare() {
         return membri.size() < hackathon.getMaxPersoneTeam();
+    }
+
+    public void aggiungiVoto(Voto voto) {
+        voti.add(voto);
+    }
+
+    public double calcolaMediaVoti() {
+        if (voti.isEmpty()) return 0.0;
+
+        int somma = 0;
+        for (Voto v : voti) {
+            somma += v.getValore();
+        }
+        return (double) somma / voti.size();
     }
 }

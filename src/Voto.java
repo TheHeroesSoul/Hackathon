@@ -8,4 +8,8 @@ public class Voto {
         this.giudice = giudice;
         this.team = team;
     }
+
+    public int getValore() {
+        return valore;
+    }
 }
