@@ -37,6 +37,14 @@ public class Hackathon {
         return titolo;
     }
 
+    public int getMaxPersoneTeam() {
+        return maxPersoneTeam;
+    }
+
+    public void setMaxPersoneTeam(int maxPersoneTeam) {
+        this.maxPersoneTeam = maxPersoneTeam;
+    }
+
     public void aggiungiGiudice(Giudice g) {
         giudici.add(g);
     }
