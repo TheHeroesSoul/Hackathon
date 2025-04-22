@@ -38,5 +38,5 @@ Ogni partecipante può contattare un altro utente iscritto e chiedere di unirsi 
 
 ## Studenti con matricola:
 - N86005440([Lista Lorenzo](https://github.com/TheHeroesSoul))
-- N86005493(Francesco Giuliani)
+- N86005493([Francesco Giuliani](https://github.com/elipnotic))
 - N86005645([Giulio Giangrande](https://github.com/imgg98))
