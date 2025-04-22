@@ -12,4 +12,12 @@ public class Voto {
     public int getValore() {
         return valore;
     }
+
+    public Utente getGiudice() {
+       return giudice;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
 }
