@@ -1,14 +1,17 @@
-import java.util.List;
+import java.time.LocalDate;
 
 public class Organizzatore extends Utente {
 
-    public Organizzatore(String username, String email, String nome, String cognome) {
-        super(username, email, nome, cognome);
+    public Organizzatore(String id, String username, String email, String nome, String cognome) {
+        super(id, username, email, nome, cognome);
     }
 
-    public void selezionaGiudici (Hackathon hackathon, List<Giudice> giudiciSelezionati, String messaggioInvito) {
-        for (Giudice g : giudiciSelezionati) {
-            g.riceviInvito(hackathon, messaggioInvito);
-        }
+
+
+    public Hackathon creaHackathon(int id, String titolo, String sede, LocalDate dataInizio, LocalDate dataFine,
+                                   int maxIscritti, int maxPersoneInUnTeam, LocalDate inizioIscrizioni,
+                                   LocalDate fineIscrizioni, Organizzatore organizzatore) {
+        return new Hackathon(id, titolo, sede, dataInizio, dataFine, maxIscritti, maxPersoneInUnTeam, inizioIscrizioni, fineIscrizioni);
     }
+
 }

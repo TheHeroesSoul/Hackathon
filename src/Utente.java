@@ -1,26 +1,22 @@
 public class Utente {
-    private String username;
-    private String email;
-    private String nome;
-    private String cognome;
-    private boolean registrato;
+    protected String id;
+    protected String username;
+    protected String email;
+    protected String nome;
+    protected String cognome;
+    protected boolean isRegistrato;
 
-    public Utente(String username,String email, String nome, String cognome, boolean registrato) {
+    public Utente(String id, String username,String email, String nome, String cognome) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.nome = nome;
         this.cognome = cognome;
-        this.registrato = true;
+        this.isRegistrato = false;
     }
 
-    public Utente(String username, String email, String nome, String cognome) {
-        this.username = username;
-        this.email = email;
-        this.nome = nome;
-        this.cognome = cognome;
-    }
-
-    public Utente() {
+    public void registra() {
+        this.isRegistrato = true;
     }
 
     public String getUsername() {
@@ -55,6 +51,6 @@ public class Utente {
         this.cognome = cognome;
     }
 
-    public boolean isRegistrato() {return registrato;}
+    public boolean isRegistrato() {return isRegistrato;}
 
 }

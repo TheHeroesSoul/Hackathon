@@ -40,14 +40,4 @@ public class Team {
     public void aggiungiVoto(Voto voto) {
         voti.add(voto);
     }
-
-    public double calcolaMediaVoti() {
-        if (voti.isEmpty()) return 0.0;
-
-        int somma = 0;
-        for (Voto v : voti) {
-            somma += v.getValore();
-        }
-        return (double) somma / voti.size();
-    }
 }

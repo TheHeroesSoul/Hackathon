@@ -1,23 +1,36 @@
 public class Voto {
-    private int valore;
-    private Utente giudice;
-    private Team team;
+        private Giudice giudice;
+        private Team team;
+        private int valore;
 
-    public Voto(int valore, Utente giudice, Team team) {
-        this.valore = valore;
+        public Voto(Giudice giudice, Team team, int valore) {
+            this.giudice = giudice;
+            this.team = team;
+            this.valore = valore;
+        }
+
+    public Giudice getGiudice() {
+        return giudice;
+    }
+
+    public void setGiudice(Giudice giudice) {
         this.giudice = giudice;
-        this.team = team;
-    }
-
-    public int getValore() {
-        return valore;
-    }
-
-    public Utente getGiudice() {
-       return giudice;
     }
 
     public Team getTeam() {
-        return team;
+            return team;
     }
+
+    public void setTeam(Team team) {
+            this.team = team;
+    }
+
+    public int getValore() {
+            return valore;
+    }
+
+    public void setValore(int valore) {
+            this.valore = valore;
+    }
+
 }
