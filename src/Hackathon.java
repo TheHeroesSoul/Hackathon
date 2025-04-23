@@ -61,13 +61,4 @@ public class Hackathon {
     public int getmaxPersoneTeam() {
         return maxPersoneTeam;
     }
-
-    public void mostraClassifica() {
-        teams.sort((t1, t2) -> Double.compare(t2.calcolaMediaVoti(), t1.calcolaMediaVoti()));
-        System.out.println("Classifica finale:");
-        for (int i = 0; i < teams.size(); i++) {
-            Team t = teams.get(i);
-            System.out.printf("%d. %s - Media voto: %.2f%n", i + 1, t.getNomeTeam(), t.calcolaMediaVoti());
-        }
     }
-}
