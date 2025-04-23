@@ -3,14 +3,12 @@ import java.util.List;
 
 public class Team {
     private String id;
-    private String nomeTeam;
     private List<Utente> membri = new ArrayList<>();
     private Hackathon hackathon;
     private List<Voto> voti = new ArrayList<>();
 
     public Team(String id, String nomeTeam, Hackathon hackathon) {
         this.id = id;
-        this.nomeTeam = nomeTeam;
         this.hackathon = hackathon;
     }
 
@@ -21,10 +19,6 @@ public class Team {
         } else {
             System.out.println("Impossibile aggiungere " + u.getNome() + ": team pieno.");
         }
-    }
-
-    public String getNomeTeam() {
-        return nomeTeam;
     }
 
     public int getNumeroMembri() {
