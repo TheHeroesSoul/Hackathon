@@ -13,7 +13,6 @@ public class Main {
                 LocalDate.now()
         );
 
-        // === GIUDICI ===
         Giudice giudice1 = new Giudice(1, "giudice1", "g1@email.com", "Luca", "Rossi");
         Giudice giudice2 = new Giudice(2, "giudice2", "g2@email.com", "Anna", "Verdi");
 
