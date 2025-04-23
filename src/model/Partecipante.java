@@ -6,11 +6,11 @@ public class Partecipante extends Utente {
         super(id, username, email, nome, cognome);
     }
 
-    public void acceptInvito(Invito invito) {
+    public void accettaInvito(Invito invito) {
         invito.accetta();
     }
 
-    public void refuseInvito(Invito invito) {
+    public void rifiutaInvito(Invito invito) {
         invito.rifiuta();
     }
 }

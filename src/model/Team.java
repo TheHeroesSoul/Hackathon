@@ -1,48 +1,61 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Team {
     private int id;
-    private List<Utente> membri = new ArrayList<>();
     private Hackathon hackathon;
-    private List<Voto> voti = new ArrayList<>();
+    private String nome;
+    private Utente fondatore;
+    private List<Utente> membri = new ArrayList<>();
+    private List<Progresso> progressi = new ArrayList<>();
 
-    public Team(int id, Hackathon hackathon) {
+    public Team(int id, Hackathon hackathon, String nome, Utente fondatore) {
         this.id = id;
         this.hackathon = hackathon;
+        this.nome = nome;
     }
 
-    public void aggiungiMembro(Utente u) {
-        if (!membri.contains(u) && puoAccettare()) {
+    public boolean aggiungiMembro(Utente u) {
+        if (!membri.contains(u) && membri.size() < hackathon.getMaxPersoneInUnTeam()) {
             membri.add(u);
-            System.out.println("Utente " + u.getNome() + " aggiunto al team.");
-        } else {
-            System.out.println("Impossibile aggiungere " + u.getNome() + ": team pieno.");
+            return true;
         }
+        return false;
     }
 
     public boolean puoAccettare() {
         return membri.size() < hackathon.getMaxPersoneInUnTeam();
     }
 
+    public void aggiungiProgresso(Progresso progresso) {
+        progressi.add(progresso);
+    }
+
     public int getId() {
         return id;
     }
 
-    public int getNumeroMembri() {
-        return membri.size();
+    public String getNome() {
+        return nome;
     }
 
     public Hackathon getHackathon() {
         return hackathon;
     }
 
-    public List<Utente> getMembri() {
-        return membri;
+    public int getNumeroMembri() {
+        return membri.size();
     }
 
+    public List<Utente> getMembri() {
+        return Collections.unmodifiableList(membri);
+    }
 
+    public List<Progresso> getProgressi() {
+        return Collections.unmodifiableList(progressi);
+    }
 
 }

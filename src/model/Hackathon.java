@@ -85,7 +85,7 @@ public class Hackathon {
         return maxPersoneInUnTeam;
     }
 
-    public Utente[] getPartecipanti() {
-        return partecipanti.toArray(new Utente[partecipanti.size()]);
+    public List<Utente> getPartecipanti() {
+        return List.copyOf(partecipanti);
     }
 }

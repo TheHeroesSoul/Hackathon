@@ -1,7 +1,5 @@
 package model;
 
-import model.Commento;
-
 public class Giudice extends Utente {
 
     public Giudice(int id, String username, String email, String nome, String cognome) {
@@ -12,8 +10,8 @@ public class Giudice extends Utente {
         System.out.println("Sei stato selezionato come giudice per l'hackathon: " + hackathon.getTitolo());
     }
 
-    public void commentaProgresso(Progresso progresso, String testo) {
+    public void commentaProgresso(Progresso p, String testo) {
         Commento commento = new Commento(this, testo);
-        progresso.aggiungiCommento(commento);
+        p.aggiungiCommento(commento);
     }
 }

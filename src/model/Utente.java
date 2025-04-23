@@ -53,6 +53,4 @@ public class Utente {
         this.cognome = cognome;
     }
 
-    public boolean isRegistrato() {return isRegistrato;}
-
 }
