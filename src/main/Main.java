@@ -3,6 +3,7 @@ package main;
 import model.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
@@ -76,9 +77,12 @@ public class Main {
                     " | Voto: " + v.getValore());
         }
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
         System.out.println("Commenti su progressi:");
         for (Commento c : prog1.getCommentiGiudici()) {
-            System.out.println("- [" + c.getData() + "] " + c.getGiudice().getNome() + ": " + c.getTesto());
+            String dataFormattata = c.getData().format(formatter);
+            System.out.println("- [" + dataFormattata + "] " + c.getGiudice().getNome() + ": " + c.getTesto());
         }
     }
 }

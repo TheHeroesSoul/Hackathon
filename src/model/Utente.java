@@ -21,6 +21,10 @@ public class Utente {
         this.isRegistrato = true;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getUsername() {
         return username;
     }

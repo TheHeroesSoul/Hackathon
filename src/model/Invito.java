@@ -2,7 +2,7 @@ package model;
 
 public class Invito {
     public enum StatoRichiesta {
-        IN_ATTESA, ACCETTATO, RIFIUTATO
+        PENDING, ACCEPTED, DECLINED
     }
 
     private Utente mittente;
@@ -16,13 +16,13 @@ public class Invito {
         this.destinatario = destinatario;
         this.team = team;
         this.messaggio = messaggio;
-        this.stato = StatoRichiesta.IN_ATTESA;
+        this.stato = StatoRichiesta.PENDING;
     }
 
     public void accetta() {
         if (team.getNumeroMembri() < team.getHackathon().getMaxPersoneInUnTeam()) {
             team.aggiungiMembro(destinatario);
-            stato = StatoRichiesta.ACCETTATO;
+            stato = StatoRichiesta.ACCEPTED;
             System.out.println(destinatario.getNome() + " ha accettato l'invito.");
         } else {
             System.out.println("Team pieno, impossibile aggiungere.");
@@ -30,7 +30,7 @@ public class Invito {
     }
 
     public void rifiuta() {
-        stato = StatoRichiesta.RIFIUTATO;
+        stato = StatoRichiesta.DECLINED;
         System.out.println(destinatario.getNome() + " ha rifiutato l'invito.");
     }
 

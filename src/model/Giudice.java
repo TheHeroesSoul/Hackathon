@@ -7,7 +7,7 @@ public class Giudice extends Utente {
     }
 
     public void selezionato(Hackathon hackathon) {
-        System.out.println("Sei stato selezionato come giudice per l'hackathon: " + hackathon.getTitolo());
+        System.out.println("Ciao " + this.getUsername() + ", sei stato selezionato come giudice per l'hackathon: " + hackathon.getTitolo());;
     }
 
     public void commentaProgresso(Progresso p, String testo) {

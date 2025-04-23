@@ -1,7 +1,5 @@
 package model;
 
-import model.Commento;
-
 import java.time.LocalDateTime;
 import java.util.*;
 
