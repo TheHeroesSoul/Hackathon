@@ -55,7 +55,7 @@ public class Main {
         hackathon.aggiungiVoto(new Voto(giudice1, team, 10));
         hackathon.aggiungiVoto(new Voto(giudice2, team2, 8));
 
-        System.out.println("Classifica:");
+        System.out.println("Classifica: ");
         for (Voto v : hackathon.getClassifica()) {
             System.out.println("Team: " + v.getTeam().getId() +
                     " | Giudice: " + v.getGiudice().getNome() +
