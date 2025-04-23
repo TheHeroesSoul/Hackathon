@@ -11,18 +11,4 @@ public class Organizzatore extends Utente {
             g.riceviInvito(hackathon, messaggioInvito);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
