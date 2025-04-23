@@ -57,7 +57,4 @@ public class Utente {
 
     public boolean isRegistrato() {return registrato;}
 
-    public void contattaPerTeam(Utente destinatario, String messaggio) {
-        System.out.println("Contatto inviato a " + destinatario.getNome() + ": " + messaggio);
-    }
 }
