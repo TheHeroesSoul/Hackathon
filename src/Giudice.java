@@ -1,6 +1,6 @@
 public class Giudice extends Utente {
 
-    public Giudice(String id, String username, String email, String nome, String cognome) {
+    public Giudice(int id, String username, String email, String nome, String cognome) {
         super(id, username, email, nome, cognome);
     }
 

@@ -18,7 +18,7 @@ public class Invito {
     }
 
     public void accetta() {
-        if (team.getNumeroMembri() < team.getHackathon().getMaxPersoneTeam()) {
+        if (team.getNumeroMembri() < team.getHackathon().getMaxPersoneInUnTeam()) {
             team.aggiungiMembro(destinatario);
             stato = StatoRichiesta.ACCETTATO;
             System.out.println(destinatario.getNome() + " ha accettato l'invito.");

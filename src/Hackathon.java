@@ -11,7 +11,6 @@ public class Hackathon {
     private int maxIscritti;
     private int maxPersoneInUnTeam;
     private LocalDate inizioIscrizioni;
-    private LocalDate fineIscrizioni;
     private Problema descrizioneProblema;
     private List<Giudice> giudici = new ArrayList<>();
     private List<Utente> partecipanti = new ArrayList<>();
@@ -19,8 +18,7 @@ public class Hackathon {
     private boolean iscrizioniAperte;
 
     public Hackathon(int id, String titolo, String sede, LocalDate dataInizio, LocalDate dataFine,
-                     int maxIscritti, int maxPersoneInUnTeam, LocalDate inizioIscrizioni,
-                     LocalDate fineIscrizioni) {
+                     int maxIscritti, int maxPersoneInUnTeam, LocalDate inizioIscrizioni) {
         this.id = id;
         this.titolo = titolo;
         this.sede = sede;
@@ -29,8 +27,48 @@ public class Hackathon {
         this.maxIscritti = maxIscritti;
         this.maxPersoneInUnTeam = maxPersoneInUnTeam;
         this.inizioIscrizioni = inizioIscrizioni;
-        this.fineIscrizioni = fineIscrizioni;
         this.iscrizioniAperte = false;
+    }
+
+    public void apriIscrizioni() {
+        if (LocalDate.now().isAfter(inizioIscrizioni.minusDays(1)) &&
+                LocalDate.now().isBefore(dataInizio.minusDays(2).plusDays(1))) {
+            this.iscrizioniAperte = true;
+        }
+    }
+
+    public void chiudiIscrizioni() {
+        this.iscrizioniAperte = false;
+    }
+
+    public boolean isIscrizioniAperte() {
+        return iscrizioniAperte;
+    }
+
+    public void aggiungiGiudice(Giudice g) {
+        if (!giudici.contains(g)) {
+            giudici.add(g);
+        }
+    }
+
+    public void aggiungiPartecipante(Utente u) {
+        if (partecipanti.size() < maxIscritti && !partecipanti.contains(u)) {
+            partecipanti.add(u);
+        }
+    }
+
+    public void pubblicaProblema(Problema problema) {
+        this.descrizioneProblema = problema;
+    }
+
+    public void aggiungiVoto(Voto voto) {
+        classifica.add(voto);
+    }
+
+    public List<Voto> getClassifica() {
+        return classifica.stream()
+                .sorted((v1, v2) -> Integer.compare(v2.getValore(), v1.getValore()))
+                .toList();
     }
 
     public String getTitolo() {
@@ -41,29 +79,11 @@ public class Hackathon {
         return maxIscritti;
     }
 
-    public int getMaxPersoneTeam() {
-        return maxPersoneTeam;
+    public int getMaxPersoneInUnTeam() {
+        return maxPersoneInUnTeam;
     }
 
-    public void setMaxPersoneTeam(int maxPersoneTeam) {
-        this.maxPersoneTeam = maxPersoneTeam;
+    public Utente[] getPartecipanti() {
+        return partecipanti.toArray(new Utente[partecipanti.size()]);
     }
-
-    public void aggiungiGiudice(Giudice g) {
-        if (!giudici.contains(g)) {
-            giudici.add(g);
-        }
-    }
-
-    public void aggiungiRegistrazione(Registrazione r) {
-        iscrizioni.add(r);
-    }
-
-    public void pubblicaProblema(Problema p) {
-        this.problema = p;
-    }
-
-    public int getmaxPersoneTeam() {
-        return maxPersoneTeam;
-    }
-    }
+}

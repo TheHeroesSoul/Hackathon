@@ -7,7 +7,8 @@ public class Progresso {
     private String documento;
     private List<Commento> commentiGiudici = new ArrayList<Commento>();
 
-    public Progresso(String documento) {
+    public Progresso(Team team, String documento) {
+        this.team = team;
         this.data = LocalDateTime.now();
         this.documento = documento;
     }
@@ -15,4 +16,5 @@ public class Progresso {
     public void aggiungiCommento(Commento commento) {
         commentiGiudici.add(commento);
     }
+
 }

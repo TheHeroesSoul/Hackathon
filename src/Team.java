@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
-    private String id;
+    private int id;
     private List<Utente> membri = new ArrayList<>();
     private Hackathon hackathon;
     private List<Voto> voti = new ArrayList<>();
 
-    public Team(String id, String nomeTeam, Hackathon hackathon) {
+    public Team(int id, Hackathon hackathon) {
         this.id = id;
         this.hackathon = hackathon;
     }
@@ -19,6 +19,14 @@ public class Team {
         } else {
             System.out.println("Impossibile aggiungere " + u.getNome() + ": team pieno.");
         }
+    }
+
+    public boolean puoAccettare() {
+        return membri.size() < hackathon.getMaxPersoneInUnTeam();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getNumeroMembri() {
@@ -33,11 +41,6 @@ public class Team {
         return membri;
     }
 
-    public boolean puoAccettare() {
-        return membri.size() < hackathon.getMaxPersoneTeam();
-    }
 
-    public void aggiungiVoto(Voto voto) {
-        voti.add(voto);
-    }
+
 }
