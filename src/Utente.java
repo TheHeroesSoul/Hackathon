@@ -1,12 +1,12 @@
 public class Utente {
-    protected String id;
+    protected int id;
     protected String username;
     protected String email;
     protected String nome;
     protected String cognome;
     protected boolean isRegistrato;
 
-    public Utente(String id, String username,String email, String nome, String cognome) {
+    public Utente(int id, String username,String email, String nome, String cognome) {
         this.id = id;
         this.username = username;
         this.email = email;
