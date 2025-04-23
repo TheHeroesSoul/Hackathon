@@ -1,7 +1,7 @@
 # Homework
 ![HACKATHON](https://blog.aevo.com.br/wp-content/uploads/2020/11/hackathon-o-que-e.jpg)
 
-## Prima Parte dell' Homework
+## Prima Parte dell'Homework
 
 In questo homework, i gruppi di studenti precedentemente formati con l'iscrizione al modulo online devono iniziare a costruire il progetto, la cui specifica informale dei requisiti è riportata in allegato. 📚✨
 
