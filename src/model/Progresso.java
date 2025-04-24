@@ -42,7 +42,7 @@ public class Progresso {
                 "team=" + team.getNome() +
                 ", data=" + data +
                 ", documento='" + documento + '\'' +
-                ", commenti=" + commentiGiudici.size() + // Mostra solo la quantità di commenti
+                ", commenti=" + commentiGiudici.size() +
                 '}';
     }
 }

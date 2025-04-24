@@ -66,36 +66,37 @@ public class Hackathon {
     }
 
     public void aggiungiTeam(Team t) {
-        if (teams.size() < maxIscritti / maxPersoneInUnTeam) { // Limite massimo di team
+        if (teams.size() < maxIscritti / maxPersoneInUnTeam) {
             teams.add(t);
         }
     }
 
-/*    private Map<Team, Integer> calcolaPunteggio() {
-        Map<Team, Integer> teamPunti = new HashMap<>();
-        for (Team team : teams) {
-            int punteggioTotale = 0;
-            for (Voto voto : team.getVoti()) {
-                punteggioTotale += voto.getValore();
-            }
-            teamPunti.put(team, punteggioTotale);
+    public List<Team> getClassifica() {
+        List<Team> classifica = new ArrayList<>(teams);
+
+        classifica.sort((team1, team2) -> {
+            int punteggioTeam1 = calcolaPunteggio(team1);
+            int punteggioTeam2 = calcolaPunteggio(team2);
+            return Integer.compare(punteggioTeam2, punteggioTeam1);
+        });
+
+        System.out.println("Classifica:");
+        for (int i = 0; i < classifica.size(); i++) {
+            Team team = classifica.get(i);
+            System.out.println((i + 1) + ". " + team.getNome() + " - " + calcolaPunteggio(team) + " punti");
         }
-        return teamPunti;
+
+        return classifica;
     }
 
-    public List<Team> getClassifica() {
-        Map<Team, Integer> teamPunti = calcolaPunteggio();
-
-        List<Team> classificaGenerale = new ArrayList<>(teamPunti.keySet());
-        classificaGenerale.sort((team1, team2) -> Integer.compare(teamPunti.get(team2), teamPunti.get(team1)));
-
-        System.out.println("Classifica finale:");
-        for (Team team : classificaGenerale) {
-            System.out.println(team.getNome() + ": " + teamPunti.get(team) + " punti");
+    private int calcolaPunteggio(Team team) {
+        int punteggioTotale = 0;
+        for (Voto voto : team.getVoti()) {
+            punteggioTotale += voto.getValore();
         }
+        return punteggioTotale;
+    }
 
-        return classificaGenerale;
-    }*/
 
     public String getTitolo() {
         return titolo;
