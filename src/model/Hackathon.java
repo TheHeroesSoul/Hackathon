@@ -2,9 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Hackathon {
     private int id;
@@ -34,7 +32,6 @@ public class Hackathon {
         this.iscrizioniAperte = false;
     }
 
-    // Apre le iscrizioni se la data è corretta
     public void apriIscrizioni() {
         if (LocalDate.now().isAfter(inizioIscrizioni.minusDays(1)) &&
                 LocalDate.now().isBefore(dataInizio.minusDays(2).plusDays(1)) && !iscrizioniAperte) {
@@ -42,24 +39,20 @@ public class Hackathon {
         }
     }
 
-    // Chiude le iscrizioni
     public void chiudiIscrizioni() {
         this.iscrizioniAperte = false;
     }
 
-    // Restituisce lo stato delle iscrizioni
     public boolean isIscrizioniAperte() {
         return iscrizioniAperte;
     }
 
-    // Aggiunge un giudice se non è già presente
     public void aggiungiGiudice(Giudice g) {
         if (!giudici.contains(g)) {
             giudici.add(g);
         }
     }
 
-    // Aggiunge un partecipante se non è già presente e non si è raggiunto il massimo
     public boolean aggiungiPartecipante(Utente u) {
         if (partecipanti.size() < maxIscritti && !partecipanti.contains(u)) {
             partecipanti.add(u);
@@ -68,20 +61,17 @@ public class Hackathon {
         return false;
     }
 
-    // Pubblica la descrizione del problema
     public void pubblicaProblema(Problema p) {
         this.descrizioneProblema = p;
     }
 
-    // Aggiunge un team
     public void aggiungiTeam(Team t) {
         if (teams.size() < maxIscritti / maxPersoneInUnTeam) { // Limite massimo di team
             teams.add(t);
         }
     }
 
-    // Calcola la classifica finale basata sui voti
-    private Map<Team, Integer> calcolaPunteggio() {
+/*    private Map<Team, Integer> calcolaPunteggio() {
         Map<Team, Integer> teamPunti = new HashMap<>();
         for (Team team : teams) {
             int punteggioTotale = 0;
@@ -93,7 +83,6 @@ public class Hackathon {
         return teamPunti;
     }
 
-    // Restituisce la classifica dei team ordinata per punteggio
     public List<Team> getClassifica() {
         Map<Team, Integer> teamPunti = calcolaPunteggio();
 
@@ -106,19 +95,16 @@ public class Hackathon {
         }
 
         return classificaGenerale;
-    }
+    }*/
 
-    // Getter per il titolo
     public String getTitolo() {
         return titolo;
     }
 
-    // Getter per il numero massimo di iscritti
     public int getMaxIscritti() {
         return maxIscritti;
     }
 
-    // Getter per il numero massimo di persone in un team
     public int getMaxPersoneInUnTeam() {
         return maxPersoneInUnTeam;
     }

@@ -7,7 +7,7 @@ public class Partecipante extends Utente {
     }
 
     public void accettaInvito(Invito invito) {
-        if (invito.getStato() == Invito.StatoRichiesta.PENDING) { // Verifica che l'invito non sia già stato accettato/rifiutato
+        if (invito.getStato() == Invito.StatoRichiesta.PENDING) {
             invito.getTeam().aggiungiMembro(this);
             invito.setStato(Invito.StatoRichiesta.ACCEPTED);
             System.out.println(this.getNome() + " ha accettato l'invito per il team " + invito.getTeam().getNome());
@@ -17,7 +17,7 @@ public class Partecipante extends Utente {
     }
 
     public void rifiutaInvito(Invito invito) {
-        if (invito.getStato() == Invito.StatoRichiesta.PENDING) { // Verifica che l'invito non sia già stato accettato
+        if (invito.getStato() == Invito.StatoRichiesta.PENDING) {
             invito.setStato(Invito.StatoRichiesta.DECLINED);
             System.out.println(this.getNome() + " ha rifiutato l'invito per il team " + invito.getTeam().getNome());
         } else {

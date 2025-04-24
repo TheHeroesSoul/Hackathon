@@ -5,13 +5,13 @@ public class Invito {
         PENDING, ACCEPTED, DECLINED
     }
 
-    private Utente mittente;
+    private Partecipante mittente;
     private Partecipante destinatario;
     private Team team;
     private String messaggio;
     private StatoRichiesta stato;
 
-    public Invito(Utente mittente, Partecipante destinatario, Team team, String messaggio) {
+    public Invito(Partecipante mittente, Partecipante destinatario, Team team, String messaggio) {
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.team = team;
