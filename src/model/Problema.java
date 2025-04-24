@@ -4,7 +4,7 @@ public class Problema {
     private String descrizione;
     private Hackathon hackathon;
 
-    public Problema(String descrizione, Hackathon hackathon, Giudice giudice) {
+    public Problema(String descrizione, Hackathon hackathon) {
         this.descrizione = descrizione;
         this.hackathon = hackathon;
     }
@@ -23,5 +23,13 @@ public class Problema {
 
     public void setHackathon(Hackathon hackathon) {
         this.hackathon = hackathon;
+    }
+
+    @Override
+    public String toString() {
+        return "Problema{" +
+                "descrizione='" + descrizione + '\'' +
+                ", hackathon=" + hackathon.getTitolo() +
+                '}';
     }
 }

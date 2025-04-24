@@ -13,5 +13,6 @@ public class Giudice extends Utente {
     public void commentaProgresso(Progresso p, String testo) {
         Commento commento = new Commento(this, testo);
         p.aggiungiCommento(commento);
+        System.out.println("Commento aggiunto al progresso: " + testo);
     }
 }

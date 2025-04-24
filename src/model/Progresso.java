@@ -7,12 +7,13 @@ public class Progresso {
     private final Team team;
     private final LocalDateTime data;
     private final String documento;
-    private List<Commento> commentiGiudici = new ArrayList<>();
+    private final List<Commento> commentiGiudici; // reso final
 
     public Progresso(Team team, String documento) {
         this.team = team;
         this.data = LocalDateTime.now();
         this.documento = documento;
+        this.commentiGiudici = new ArrayList<>(); // inizializzazione
     }
 
     public void aggiungiCommento(Commento c) {
@@ -31,6 +32,7 @@ public class Progresso {
         return documento;
     }
 
+    // Metodo che restituisce una lista non modificabile di commenti
     public List<Commento> getCommentiGiudici() {
         return Collections.unmodifiableList(commentiGiudici);
     }
@@ -41,8 +43,7 @@ public class Progresso {
                 "team=" + team.getNome() +
                 ", data=" + data +
                 ", documento='" + documento + '\'' +
-                ", commenti=" + commentiGiudici.size() +
+                ", commenti=" + commentiGiudici.size() + // Mostra solo la quantità di commenti
                 '}';
     }
-
 }

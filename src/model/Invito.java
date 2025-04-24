@@ -6,12 +6,12 @@ public class Invito {
     }
 
     private Utente mittente;
-    private Utente destinatario;
+    private Partecipante destinatario;
     private Team team;
     private String messaggio;
     private StatoRichiesta stato;
 
-    public Invito(Utente mittente, Utente destinatario, Team team, String messaggio) {
+    public Invito(Utente mittente, Partecipante destinatario, Team team, String messaggio) {
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.team = team;
@@ -36,6 +36,10 @@ public class Invito {
 
     public StatoRichiesta getStato() {
         return stato;
+    }
+
+    public void setStato(StatoRichiesta stato) {
+        this.stato = stato;
     }
 
     public Team getTeam() {

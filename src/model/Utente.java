@@ -57,4 +57,9 @@ public class Utente {
         this.cognome = cognome;
     }
 
+    @Override
+    public String toString() {
+        return "Utente{id=" + id + ", username='" + username + "', email='" + email + "', nome='" + nome + "', cognome='" + cognome + "'}";
+    }
+
 }

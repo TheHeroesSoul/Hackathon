@@ -2,7 +2,9 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Hackathon {
     private int id;
@@ -16,7 +18,6 @@ public class Hackathon {
     private Problema descrizioneProblema;
     private List<Giudice> giudici = new ArrayList<>();
     private List<Utente> partecipanti = new ArrayList<>();
-    private List<Voto> classifica = new ArrayList<>();
     private List<Team> teams = new ArrayList<>();
     private boolean iscrizioniAperte;
 
@@ -33,74 +34,104 @@ public class Hackathon {
         this.iscrizioniAperte = false;
     }
 
+    // Apre le iscrizioni se la data è corretta
     public void apriIscrizioni() {
         if (LocalDate.now().isAfter(inizioIscrizioni.minusDays(1)) &&
-                LocalDate.now().isBefore(dataInizio.minusDays(2).plusDays(1))) {
+                LocalDate.now().isBefore(dataInizio.minusDays(2).plusDays(1)) && !iscrizioniAperte) {
             this.iscrizioniAperte = true;
         }
     }
 
+    // Chiude le iscrizioni
     public void chiudiIscrizioni() {
         this.iscrizioniAperte = false;
     }
 
+    // Restituisce lo stato delle iscrizioni
     public boolean isIscrizioniAperte() {
         return iscrizioniAperte;
     }
 
+    // Aggiunge un giudice se non è già presente
     public void aggiungiGiudice(Giudice g) {
         if (!giudici.contains(g)) {
             giudici.add(g);
         }
     }
 
-    public void aggiungiPartecipante(Utente u) {
+    // Aggiunge un partecipante se non è già presente e non si è raggiunto il massimo
+    public boolean aggiungiPartecipante(Utente u) {
         if (partecipanti.size() < maxIscritti && !partecipanti.contains(u)) {
             partecipanti.add(u);
+            return true;
         }
+        return false;
     }
 
+    // Pubblica la descrizione del problema
     public void pubblicaProblema(Problema p) {
         this.descrizioneProblema = p;
     }
 
-    public void aggiungiVoto(Voto voto) {
-        classifica.add(voto);
-    }
-
+    // Aggiunge un team
     public void aggiungiTeam(Team t) {
-        teams.add(t);
-    }
-
-    public void rimuoviTeam(Team team) {
-        if (teams.contains(team)) {
-            teams.remove(team);
-            System.out.println("Il team " + team.getNome() + " è stato rimosso dall'hackathon.");
-            classifica.removeIf(voto -> voto.getTeam().equals(team));
-        } else {
-            System.out.println("Il team " + team.getNome() + " non è presente nell'hackathon.");
+        if (teams.size() < maxIscritti / maxPersoneInUnTeam) { // Limite massimo di team
+            teams.add(t);
         }
     }
 
-    public List<Voto> getClassifica() {
-        return classifica.stream()
-                .sorted((v1, v2) -> Integer.compare(v2.getValore(), v1.getValore()))
-                .toList();
+    // Calcola la classifica finale basata sui voti
+    private Map<Team, Integer> calcolaPunteggio() {
+        Map<Team, Integer> teamPunti = new HashMap<>();
+        for (Team team : teams) {
+            int punteggioTotale = 0;
+            for (Voto voto : team.getVoti()) {
+                punteggioTotale += voto.getValore();
+            }
+            teamPunti.put(team, punteggioTotale);
+        }
+        return teamPunti;
     }
 
+    // Restituisce la classifica dei team ordinata per punteggio
+    public List<Team> getClassifica() {
+        Map<Team, Integer> teamPunti = calcolaPunteggio();
+
+        List<Team> classificaGenerale = new ArrayList<>(teamPunti.keySet());
+        classificaGenerale.sort((team1, team2) -> Integer.compare(teamPunti.get(team2), teamPunti.get(team1)));
+
+        System.out.println("Classifica finale:");
+        for (Team team : classificaGenerale) {
+            System.out.println(team.getNome() + ": " + teamPunti.get(team) + " punti");
+        }
+
+        return classificaGenerale;
+    }
+
+    // Getter per il titolo
     public String getTitolo() {
         return titolo;
     }
 
+    // Getter per il numero massimo di iscritti
     public int getMaxIscritti() {
         return maxIscritti;
     }
 
+    // Getter per il numero massimo di persone in un team
     public int getMaxPersoneInUnTeam() {
         return maxPersoneInUnTeam;
     }
 
+    public List<Giudice> getGiudici() {
+        return List.copyOf(giudici);
+    }
+
     public List<Utente> getPartecipanti() {
         return List.copyOf(partecipanti);
+    }
+
+    public List<Team> getTeams() {
+        return teams;
     }
 }
