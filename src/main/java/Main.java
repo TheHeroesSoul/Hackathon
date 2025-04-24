@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Organizzatore organizzatore = new Organizzatore(1, "org1", "org1@example.com", "Mario", "Rossi");
+        Organizzatore organizzatore = new Organizzatore(1, "GiovaTheFrog", "Giovanni.Rana@outlook.com", "Giovanni", "Rana");
 
         Hackathon hackathon = organizzatore.creaHackathon(
                 1,
@@ -20,23 +20,23 @@ public class Main {
         );
         System.out.println("Hackathon creato: " + hackathon.getTitolo());
 
-        Giudice giudice1 = new Giudice(2, "judge1", "judge1@example.com", "Anna", "Bianchi");
-        Giudice giudice2 = new Giudice(3, "judge2", "judge2@example.com", "Luca", "Verdi");
+        Giudice giudice1 = new Giudice(2, "BestChef", "PannoCarta@libero.it", "Antonino", "Cannavacciuolo");
+        Giudice giudice2 = new Giudice(3, "NiceHair2010", "JB@gmail.com", "Justin", "Bieber");
         hackathon.aggiungiGiudice(giudice1);
         hackathon.aggiungiGiudice(giudice2);
         System.out.println("Giudici aggiunti: " + hackathon.getGiudici().size());
 
-        Partecipante partecipante1 = new Partecipante(4, "part1", "part1@example.com", "Giorgio", "Neri");
-        Partecipante partecipante2 = new Partecipante(5, "part2", "part2@example.com", "Sara", "Blu");
-        Partecipante partecipante3 = new Partecipante(6, "part3", "part3@example.com", "Elena", "Gialli");
+        Partecipante partecipante1 = new Partecipante(4, "Capellone", "Sanremo@alice.it", "Pippo", "Baudo");
+        Partecipante partecipante2 = new Partecipante(5, "OilKing", "Johnson@yahoo.com", "Puff", "Diddy");
+        Partecipante partecipante3 = new Partecipante(6, "Nostradamus", "SoTuttoIo@Mail.com", "Fabrizio", "Corona");
 
         hackathon.aggiungiPartecipante(partecipante1);
         hackathon.aggiungiPartecipante(partecipante2);
         hackathon.aggiungiPartecipante(partecipante3);
         System.out.println("Partecipanti registrati: " + hackathon.getPartecipanti().size());
 
-        Team team1 = new Team(1, hackathon, "Team Alpha", partecipante1, List.of(partecipante2));
-        Team team2 = new Team(2, hackathon, "Team Beta", partecipante3, List.of());
+        Team team1 = new Team(1, hackathon, "Team BRR BRR PATAPIM", partecipante1, List.of(partecipante2));
+        Team team2 = new Team(2, hackathon, "Team Trallallero Trallalla", partecipante3, List.of());
         System.out.println("Team creati: " + hackathon.getTeams().size());
 
         Problema problema = new Problema("Sviluppare un'app per la gestione delle risorse educative.", hackathon);
