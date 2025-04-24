@@ -17,6 +17,7 @@ public class Hackathon {
     private List<Giudice> giudici = new ArrayList<>();
     private List<Utente> partecipanti = new ArrayList<>();
     private List<Voto> classifica = new ArrayList<>();
+    private List<Team> teams = new ArrayList<>();
     private boolean iscrizioniAperte;
 
     public Hackathon(int id, String titolo, String sede, LocalDate dataInizio, LocalDate dataFine,
@@ -65,6 +66,20 @@ public class Hackathon {
 
     public void aggiungiVoto(Voto voto) {
         classifica.add(voto);
+    }
+
+    public void aggiungiTeam(Team t) {
+        teams.add(t);
+    }
+
+    public void rimuoviTeam(Team team) {
+        if (teams.contains(team)) {
+            teams.remove(team);
+            System.out.println("Il team " + team.getNome() + " è stato rimosso dall'hackathon.");
+            classifica.removeIf(voto -> voto.getTeam().equals(team));
+        } else {
+            System.out.println("Il team " + team.getNome() + " non è presente nell'hackathon.");
+        }
     }
 
     public List<Voto> getClassifica() {

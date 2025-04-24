@@ -16,22 +16,49 @@ public class Team {
         this.id = id;
         this.hackathon = hackathon;
         this.nome = nome;
+        hackathon.aggiungiTeam(this);
     }
 
-    public boolean aggiungiMembro(Utente u) {
-        if (!membri.contains(u) && membri.size() < hackathon.getMaxPersoneInUnTeam()) {
-            membri.add(u);
-            return true;
+    public void aggiungiMembro(Utente utente) {
+        if (utente.equals(fondatore)) {
+            System.out.println(utente.getNome() + " è già fondatore di un altro team, non può essere aggiunto come membro.");
+            return;
         }
-        return false;
+
+        for (Team team : hackathon.getTeam()) {
+            if (team.getMembri().contains(utente)) {
+                team.rimuoviMembro(utente);
+            }
+        }
+
+        if (!membri.contains(utente)) {
+            membri.add(utente);
+            System.out.println(utente.getNome() + " aggiunto con successo al team " + nome);
+        } else {
+            System.out.println(utente.getNome() + " è già membro del team.");
+        }
+    }
+
+    public void rimuoviMembro(Utente utente) {
+        if (!utente.equals(fondatore)) {
+            membri.remove(utente);
+            System.out.println(utente.getNome() + " rimosso dal team " + nome);
+
+            if (membri.isEmpty()) {
+                System.out.println("Il team " + nome + " è vuoto ora.");
+                hackathon.rimuoviTeam(this);
+            }
+        } else {
+            System.out.println("Non puoi rimuovere il fondatore dal team.");
+        }
     }
 
     public boolean puoAccettare() {
         return membri.size() < hackathon.getMaxPersoneInUnTeam();
     }
 
-    public void aggiungiProgresso(Progresso progresso) {
-        progressi.add(progresso);
+    public void aggiungiProgresso(Progresso p) {
+        progressi.add(p);
     }
 
     public int getId() {

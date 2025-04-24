@@ -37,4 +37,8 @@ public class Invito {
     public StatoRichiesta getStato() {
         return stato;
     }
+
+    public Team getTeam() {
+        return team;
+    }
 }

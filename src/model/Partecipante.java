@@ -7,10 +7,11 @@ public class Partecipante extends Utente {
     }
 
     public void accettaInvito(Invito invito) {
-        invito.accetta();
+        invito.getTeam().aggiungiMembro(this);
+        System.out.println(this.getNome() + " ha accettato l'invito per il team " + invito.getTeam().getNome());
     }
 
     public void rifiutaInvito(Invito invito) {
-        invito.rifiuta();
+        System.out.println(this.getNome() + " ha rifiutato l'invito per il team " + invito.getTeam().getNome());
     }
 }
