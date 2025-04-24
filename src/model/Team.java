@@ -8,13 +8,13 @@ public class Team {
     private int id;
     private Hackathon hackathon;
     private String nome;
-    private Utente fondatore;
-    private List<Utente> membri = new ArrayList<>();
+    private Partecipante fondatore;
+    private List<Partecipante> membri = new ArrayList<>();
     private List<Voto> voti = new ArrayList<>();
     private List<Progresso> progressi = new ArrayList<>();
 
     // Costruttore per creare il team con fondatore e partecipanti
-    public Team(int id, Hackathon hackathon, String nome, Utente fondatore, List<Partecipante> partecipanti) {
+    public Team(int id, Hackathon hackathon, String nome, Partecipante fondatore, List<Partecipante> partecipanti) {
         this.id = id;
         this.hackathon = hackathon;
         this.nome = nome;
@@ -23,9 +23,15 @@ public class Team {
 
         // Aggiungiamo i partecipanti
         for (Partecipante p : partecipanti) {
-            this.membri.add(p);
+            if (this.membri.size() < hackathon.getMaxPersoneInUnTeam()) {
+                this.membri.add(p);
+            } else {
+                System.out.println("⚠️ Team pieno: impossibile aggiungere " + p.getNome());
+            }
         }
-        hackathon.aggiungiTeam(this);  // Aggiungi il team all'hackathon
+
+// Registra il team nell'hackathon
+        hackathon.aggiungiTeam(this);
     }
 
     // Metodo per aggiungere un membro al team
@@ -74,7 +80,7 @@ public class Team {
     }
 
     // Getter per i membri del team
-    public List<Utente> getMembri() {
+    public List<Partecipante> getMembri() {
         return Collections.unmodifiableList(membri);
     }
 
