@@ -1,6 +1,6 @@
 package main.java;
 
-import model.*;
+import main.java.model.*;
 import java.time.LocalDate;
 import java.util.List;
 
