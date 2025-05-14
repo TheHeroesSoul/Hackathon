@@ -8,7 +8,6 @@ public class ModelManager {
 
     public ModelManager() {
         utenti = new ArrayList<>();
-        // Aggiungi qualche utente fittizio per test
         utenti.add(new Utente(1, "pippo", "pippo@email.com", "Pippo", "Rossi"));
         utenti.add(new Utente(2, "anna", "anna@email.com", "Anna", "Bianchi"));
     }
@@ -22,5 +21,4 @@ public class ModelManager {
         return null;
     }
 
-    // In futuro potrai aggiungere metodi simili per hackathon, partecipanti ecc.
 }
