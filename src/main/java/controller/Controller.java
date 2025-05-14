@@ -16,7 +16,7 @@ public class Controller {
         Utente utente = model.findUtenteByUsername(username);
         if (utente != null) {
             JOptionPane.showMessageDialog(null, "Benvenuto " + utente.getNome());
-            // TODO: apri nuova GUI dopo login
+
         } else {
             JOptionPane.showMessageDialog(null, "Utente non trovato.");
         }
